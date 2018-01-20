@@ -1,0 +1,16 @@
+{
+  "name": "react_chat",
+  "version": "1.0.0",
+  "description": "React chat app",
+  "main": "index.js",
+  "author": "Adam Christopher",
+  "license": "MIT",
+  "scripts": {
+    "server": "webpack-dev-server",
+    "build": "set NODE_ENV='production'&&webpack -p"
+  },
+  "devDependencies": {
+    "webpack": "^3.10.0",
+    "webpack-dev-server": "^2.11.0"
+  }
+}
