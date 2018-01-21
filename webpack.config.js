@@ -7,6 +7,7 @@ var config = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index_bundle.js',
   },
+  devtool: 'inline-source-map',
 }
 
 if(process.env.NODE_ENV === 'production') {

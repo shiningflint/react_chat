@@ -6,7 +6,7 @@
   "author": "Adam Christopher",
   "license": "MIT",
   "scripts": {
-    "server": "webpack-dev-server",
+    "server": "webpack-dev-server --entry ./src/js/index.js --output-filename ./dist/index_bundle.js",
     "build": "set NODE_ENV='production'&&webpack -p"
   },
   "devDependencies": {
