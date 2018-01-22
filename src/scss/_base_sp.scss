@@ -60,9 +60,6 @@ p {
   height: 100%;
 }
 
-.chat-header__text {
-}
-
 // CHAT CONTENT
 .chat-content {
   flex: 1;
@@ -81,6 +78,9 @@ p {
   padding-right: 16px;
   margin-bottom: 16px;
 }
+.chat-item--self {
+  justify-content: flex-end;
+}
 .chat-baloon {
   max-width: calc(100% - 92px);
   background-color: white;
@@ -88,10 +88,17 @@ p {
   padding: 16px;
   box-shadow: 1px 1px 2px 0px #c1c1c1;
 }
+.chat-baloon--self {
+  background-color: #ffd6db;
+}
 .chat-time {
   width: 30px;
   margin-left: 4px;
   align-self: flex-end;
+}
+.chat-time--self {
+  margin-left: 0;
+  margin-right: 4px;
 }
 .chat-time__txt {
   font-size: 0.707em;
