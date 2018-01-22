@@ -67,6 +67,42 @@ p {
 .chat-content {
   flex: 1;
   background-color: #eeeeee;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.chat-inner {
+  vertical-align: bottom;
+}
+.chat-item {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  padding-left: 8px;
+  padding-right: 16px;
+  margin-bottom: 16px;
+}
+.chat-baloon {
+  max-width: calc(100% - 92px);
+  background-color: white;
+  color: #545454;
+  padding: 16px;
+  box-shadow: 1px 1px 2px 0px #c1c1c1;
+}
+.chat-time {
+  width: 30px;
+  margin-left: 4px;
+  align-self: flex-end;
+}
+.chat-time__txt {
+  font-size: 0.707em;
+  color: #9b9b9b;
+}
+.round-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 8px;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 // CHAT INPUT
