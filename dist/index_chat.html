@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A Chat App With React</title>
+    <link rel="stylesheet" href="index.css">
+  </head>
+  <body>
+    <div class="chat-wrapper">
+      <!-- CHAT HEADER -->
+      <div class="chat-header">
+        <div class="chat-header__title">
+          <span class="chat-header__text">User 1</span>
+        </div>
+      </div>
+      <!-- /CHAT HEADER -->
+
+      <!-- CHAT CONTENT -->
+      <div class="chat-content">
+        <div class="chat-inner" style="padding-top:50px;">
+          <div class="chat-item">
+            <div class="round-image">
+              <img src="http://texasapartmentbrokers.com/wp-content/uploads/2016/01/John-Doe.png" class="round-image__img">
+            </div>
+            <div class="chat-baloon">
+              <span class="chat-baloon__body">
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+              </span>
+            </div>
+            <div class="chat-time">
+              <span class="chat-time__txt">19:20</span>
+            </div>
+          </div>
+          <div class="chat-item">
+            <div class="round-image">
+              <img src="http://texasapartmentbrokers.com/wp-content/uploads/2016/01/John-Doe.png" class="round-image__img">
+            </div>
+            <div class="chat-baloon">
+              <span class="chat-baloon__body">
+                Contrary to popular belief, Lorem Ipsum is not simply random text.
+              </span>
+            </div>
+            <div class="chat-time">
+              <span class="chat-time__txt">19:20</span>
+            </div>
+          </div>
+          <div class="chat-item chat-item--self">
+            <div class="chat-time chat-time--self">
+              <span class="chat-time__txt">
+                20:05
+              </span>
+            </div>
+            <div class="chat-baloon chat-baloon--self">
+              <span class="chat-baloon__body chat-baloon__body--self">
+                Au contraire my brother!
+              </span>
+            </div>
+          </div>
+          <div class="chat-item chat-item--self">
+            <div class="chat-time chat-time--self">
+              <span class="chat-time__txt">
+                20:06
+              </span>
+            </div>
+            <div class="chat-baloon chat-baloon--self">
+              <span class="chat-baloon__body chat-baloon__body--self">
+                10
+              </span>
+            </div>
+          </div>
+          <div class="chat-item">
+            <div class="round-image">
+              <img src="http://texasapartmentbrokers.com/wp-content/uploads/2016/01/John-Doe.png" class="round-image__img">
+            </div>
+            <div class="chat-baloon">
+              <span class="chat-baloon__body">
+                3
+              </span>
+            </div>
+            <div class="chat-time">
+              <span class="chat-time__txt">19:20</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- /CHAT CONTENT -->
+
+      <!-- CHAT INPUT -->
+      <div class="chat-input">
+        <form action="" class="chat-input__form">
+          <div class="chat-input__message">
+            <textarea name="chat_text" placeholder="message" class="chat-input__input"></textarea>
+          </div>
+          <div class="chat-input__send">
+            <button type="submit" name="send" class="chat-input__sendbtn">SEND</button>
+          </div>
+        </form>
+      </div>
+      <!-- /CHAT INPUT -->
+    </div>
+    <script src="index_bundle.js"></script>
+  </body>
+</html>
