@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Auth = (props) => {
   return (
@@ -7,7 +8,7 @@ const Auth = (props) => {
         <div>
           <label>
             <p className='login-label'>{'email'}</p>
-            <input id='login_username' className='input-text input-text--login' type='text' />
+            <input id='login_username' className='input-text input-text--login' type='text' value={props.email} />
           </label>
         </div>
         <div>
@@ -22,6 +23,10 @@ const Auth = (props) => {
       </form>
     </div>
   )
+}
+
+Auth.propTypes = {
+  email: PropTypes.string.isRequired,
 }
 
 export default Auth
