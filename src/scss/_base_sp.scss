@@ -2,6 +2,7 @@
 // VARIABLES
 $font_standard: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
 $border_chatcolor: #b5b5b5;
+$accent_color: #dd596a;
 
 html {
   font-size: 62.5%;
@@ -14,8 +15,7 @@ body {
   color: #222;
   height: 100%;}
 
-  /* Typography
-  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+// Typography
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 2rem;
@@ -40,9 +40,154 @@ h6 { font-size: 1.5rem; line-height: 1.6;  letter-spacing: 0; }
 p {
   margin-top: 0; }
 
+// UTILITY CLASSES
+.center {
+  text-align: center;
+}
+.mt1 {
+  margin-top: 1em;
+}
+
+// BUTTON
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-block;
+  height: 38px;
+  padding: 0 30px;
+  color: #555;
+  text-align: center;
+  font-family: $font_standard;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: 4px;
+  border: 1px solid #bbb;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.button:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.button:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
+input[type="button"]:focus {
+  color: #333;
+  border-color: #888;
+  outline: 0;
+}
+.button.button-primary,
+button.button-primary,
+input[type="submit"].button-primary,
+input[type="reset"].button-primary,
+input[type="button"].button-primary {
+  color: #FFF;
+  background-color: $accent_color;
+  border-color: $accent_color;
+}
+.button.button-primary:hover,
+button.button-primary:hover,
+input[type="submit"].button-primary:hover,
+input[type="reset"].button-primary:hover,
+input[type="button"].button-primary:hover,
+.button.button-primary:focus,
+button.button-primary:focus,
+input[type="submit"].button-primary:focus,
+input[type="reset"].button-primary:focus,
+input[type="button"].button-primary:focus {
+  color: #FFF;
+  background-color: #cb4152;
+  border-color: #cb4152;
+}
+
+// FORMS
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select {
+  height: 38px;
+  padding: 6px 10px; // The 6px vertically centers text on FF, ignored by Webkit
+  background-color: #fff;
+  border: 1px solid #D1D1D1;
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+// Removes awkward default styles on some inputs for iOS
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none; }
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px; }
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border: 1px solid $accent_color;
+  outline: 0; }
+label,
+legend {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600; }
+fieldset {
+  padding: 0;
+  border-width: 0; }
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline; }
+label > .label-body {
+  display: inline-block;
+  margin-left: .5rem;
+  font-weight: normal; }
+.input-text {
+  width: 100%;
+  font-family: $font_standard;
+  font-size: 1em;
+}
+.input-text--login {
+  color: #545454;
+}
+
+// WRAPPERS
 .chat-wrapper {
   display: flex;
   flex-direction: column;
+  height: 100%;
+}
+
+.react-appwrap {
   height: 100%;
 }
 
@@ -133,9 +278,11 @@ p {
 .chat-input__input {
   width: 100%;
   height: 100%;
+  min-height: auto;// Overwrite Skeleton textarea min-height
   font-size: 16px;
   font-family: $font_standard;
   border: 1px solid #cbcbcb;
+  border-radius: 0;
   margin: 0;
   padding: 4px 0 0 4px;
 }
@@ -165,4 +312,20 @@ p {
     background-color: #dd596a;
     color: white;
   }
+}
+
+// LOGIN
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eeeeee;
+  height: 100%;
+  padding: 0 1.414em;
+}
+.login-form {
+  width: 100%;
+}
+.login-label {
+  color: #9c9c9c;
 }

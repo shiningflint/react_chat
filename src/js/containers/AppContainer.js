@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import AuthContainer from './AuthContainer'
 
 class AppContainer extends Component {
   render() {
-    return <h1>{'AppContainer bananas here!'}</h1>
+    return <AuthContainer />
   }
 }
 
