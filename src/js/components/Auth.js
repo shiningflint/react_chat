@@ -25,6 +25,7 @@ const Auth = (props) => {
               name='loginPassword'
               className='input-text input-text--login'
               type='password'
+              value={props.loginPassword}
               onChange={props.passwordChange} />
           </label>
         </div>
@@ -38,6 +39,7 @@ const Auth = (props) => {
 
 Auth.propTypes = {
   loginEmail: PropTypes.string.isRequired,
+  loginPassword: PropTypes.string.isRequired,
   emailChange: PropTypes.func.isRequired,
   passwordChange: PropTypes.func.isRequired,
   submit: PropTypes.func.isRequired,

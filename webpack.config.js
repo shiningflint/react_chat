@@ -14,7 +14,7 @@ const config = {
       path.resolve('./node_modules')
     ]
   },
-  module: {// What to load before transpiling the JS, using babel for ES6
+  module: {// What to load before transpiling the JS, using babel for ES6 to ES5
     rules: [
       { test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
@@ -23,6 +23,7 @@ const config = {
   },
 }
 
+// Production settings when running the command 'yarn run build'
 if(process.env.NODE_ENV === 'production') {
   config.plugins.push(
     new webpack.DefinePlugin({

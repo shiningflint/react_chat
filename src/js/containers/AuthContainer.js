@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Auth from 'components/Auth'
-import { fireAuth } from 'utilities/auth'
 
 class AuthContainer extends Component {
   constructor(props) {
@@ -15,9 +15,8 @@ class AuthContainer extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log("PREVENTED!", this.state.loginEmail, this.state.loginPassword)
-    fireAuth(this.state.loginEmail, this.state.loginPassword)
-      .then((booyah) => console.log(booyah))
+    this.resetAuth()
+    this.props.handleLogin(this.state.loginEmail, this.state.loginPassword)
   }
 
   handleChange(e) {
@@ -28,15 +27,27 @@ class AuthContainer extends Component {
     return this.setState({ [name]: value })
   }
 
+  resetAuth() {
+    this.setState({
+      loginEmail: '',
+      loginPassword: '',
+    })
+  }
+
   render () {
     return (
       <Auth
         loginEmail={this.state.loginEmail}
+        loginPassword={this.state.loginPassword}
         emailChange={this.handleChange}
         passwordChange={this.handleChange}
         submit={this.handleSubmit} />
     )
   }
+}
+
+AuthContainer.propTypes = {
+  handleLogin: PropTypes.func.isRequired,
 }
 
 export default AuthContainer
