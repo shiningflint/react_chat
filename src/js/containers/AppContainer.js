@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import AuthContainer from './AuthContainer'
 import ChatContainer from './ChatContainer'
-import { fireGetUser, fireAuth, fireLogout } from 'utilities/auth.js'
+import { firebaseAuth } from 'utilities/constants'
+import { fireAuth, fireLogout } from 'utilities/auth'
 
 class AppContainer extends Component {
   constructor(props) {
@@ -12,7 +13,13 @@ class AppContainer extends Component {
   }
 
   componentDidMount() {
-    fireGetUser().then((user) => this.setState({ user }))
+    firebaseAuth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setUser(user.uid)
+      } else {
+        this.resetUser()
+      }
+    })
   }
 
   handleLogin(email, password) {
@@ -30,12 +37,15 @@ class AppContainer extends Component {
       .catch((error) => console.warn(error))
   }
 
+  setUser(user) {
+    return this.setState({ user })
+  }
+
   resetUser() {
     return this.setState({ user: null })
   }
 
   render() {
-    console.log(this.state.user)
     const authOrChat = (this.state.user === null)
       ? <AuthContainer handleLogin={this.handleLogin} />
       : <ChatContainer handleLogout={this.handleLogout} />
