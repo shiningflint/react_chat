@@ -4,21 +4,32 @@ import PropTypes from 'prop-types'
 const Auth = (props) => {
   return (
     <div className='login-wrapper'>
-      <form className='login-form'>
+      <form className='login-form' onSubmit={props.submit}>
         <div>
           <label>
             <p className='login-label'>{'email'}</p>
-            <input id='login_username' className='input-text input-text--login' type='text' value={props.email} />
+            <input
+              id='login_email'
+              name='loginEmail'
+              className='input-text input-text--login'
+              type='text'
+              value={props.loginEmail}
+              onChange={props.emailChange} />
           </label>
         </div>
         <div>
           <label>
             <p className='login-label'>{'password'}</p>
-            <input id='login_password' className='input-text input-text--login' type='password' />
+            <input
+              id='login_password'
+              name='loginPassword'
+              className='input-text input-text--login'
+              type='password'
+              onChange={props.passwordChange} />
           </label>
         </div>
         <div className='center mt1'>
-          <button className='button-primary'>{'Login'}</button>
+          <button onClick={props.submit} className='button-primary'>{'Login'}</button>
         </div>
       </form>
     </div>
@@ -26,7 +37,10 @@ const Auth = (props) => {
 }
 
 Auth.propTypes = {
-  email: PropTypes.string.isRequired,
+  loginEmail: PropTypes.string.isRequired,
+  emailChange: PropTypes.func.isRequired,
+  passwordChange: PropTypes.func.isRequired,
+  submit: PropTypes.func.isRequired,
 }
 
 export default Auth

@@ -9,5 +9,7 @@ const config = {
     storageBucket: "chat-prototype-fff59.appspot.com",
     messagingSenderId: "331297495444"
   }
+firebase.initializeApp(config)
 
 export const ref = firebase.database().ref()
+export const firebaseAuth = firebase.auth
