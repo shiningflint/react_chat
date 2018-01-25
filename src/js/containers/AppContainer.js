@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import AuthContainer from './AuthContainer'
 import ChatContainer from './ChatContainer'
-import { firebaseAuth } from 'utilities/constants'
+import ChatRoomContainer from './ChatRoomContainer'
+import { firebaseAuth, chatRoomId } from 'utilities/constants'
 import { fireAuth, fireLogout } from 'utilities/auth'
 
 class AppContainer extends Component {
@@ -48,7 +49,7 @@ class AppContainer extends Component {
   render() {
     const authOrChat = (this.state.user === null)
       ? <AuthContainer handleLogin={this.handleLogin} />
-      : <ChatContainer handleLogout={this.handleLogout} />
+      : <ChatContainer handleLogout={this.handleLogout} chatRoomId={chatRoomId} uid={this.state.user} />
     return authOrChat
   }
 }
