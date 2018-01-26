@@ -9,8 +9,11 @@ class ChatContainer extends Component {
     super(props)
     this.state = {
       userValidated: false,
-      errorMessage: 'User has not been validated.'
+      errorMessage: 'User has not been validated.',
+      chatInput: "",
     }
+    this.handleSend = this.handleSend.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount() {
@@ -18,9 +21,31 @@ class ChatContainer extends Component {
       .then((result) => this.setState({ userValidated: result }))
   }
 
+  handleSend(e) {
+    e.preventDefault()
+    console.log(this.state.chatInput)
+    this.resetChatInput()
+  }
+
+  handleChange(e) {
+    return this.updateChatInput(e.target.value)
+  }
+
+  resetChatInput() {
+    return this.setState({ chatInput: "" })
+  }
+
+  updateChatInput(value) {
+    return this.setState({ chatInput: value })
+  }
+
   render () {
     const validatedComponent = this.state.userValidated
-      ? <Chat handleLogout={this.props.handleLogout} />
+      ? <Chat
+        handleLogout={this.props.handleLogout}
+        handleSend={this.handleSend}
+        handleChange={this.handleChange}
+        chatInput={this.state.chatInput} />
       : <ChatUnvalidated errorMessage={this.state.errorMessage} />
     return validatedComponent
   }
