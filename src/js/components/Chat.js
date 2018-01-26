@@ -5,7 +5,7 @@ const ChatHeader = (props) => {
   return (
     <div className="chat-header">
       <div className="chat-header__title">
-        <span className="chat-header__text">{'User 1'}</span>
+        <span className="chat-header__text" onClick={props.handleLogout}>{'User 1'}</span>
       </div>
     </div>
   )
@@ -47,7 +47,7 @@ const ChatInput = (props) => {
 const Chat = (props) => {
   return (
     <div className="chat-wrapper">
-      <ChatHeader />
+      <ChatHeader handleLogout={props.handleLogout} />
       <ChatContent />
       <ChatInput
         handleSend={props.handleSend}

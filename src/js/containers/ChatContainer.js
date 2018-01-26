@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Chat from 'components/Chat'
 import ChatUnvalidated from 'components/ChatUnvalidated'
 import { validateUserRoom } from 'utilities/auth'
+import { postChat } from 'utilities/api'
 
 class ChatContainer extends Component {
   constructor(props) {
@@ -23,7 +24,8 @@ class ChatContainer extends Component {
 
   handleSend(e) {
     e.preventDefault()
-    console.log(this.state.chatInput)
+    const timeStamp = Date.now()
+    postChat(this.props.uid, this.props.chatRoomId, this.state.chatInput, timeStamp)
     this.resetChatInput()
   }
 

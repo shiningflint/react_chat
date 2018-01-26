@@ -25,7 +25,7 @@ class AppContainer extends Component {
 
   handleLogin(email, password) {
     fireAuth(email, password)
-      .then((user) => this.setState({ user }))
+      .then((user) => this.setState({ user: user.uid }))
       .catch((error) => {
         console.warn(error.code, error.message)
         return this.resetUser()
