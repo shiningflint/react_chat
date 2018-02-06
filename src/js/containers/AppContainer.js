@@ -47,10 +47,10 @@ class AppContainer extends Component {
   }
 
   render() {
-    const authOrChat = (this.state.user === null)
+    const authorChat = (this.state.user === null)
       ? <AuthContainer handleLogin={this.handleLogin} />
       : <ChatContainer handleLogout={this.handleLogout} chatRoomId={chatRoomId} uid={this.state.user} />
-    return authOrChat
+    return authorChat
   }
 }
 

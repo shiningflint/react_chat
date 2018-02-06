@@ -11,10 +11,21 @@ const ChatHeader = (props) => {
   )
 }
 
-const ChatContent = (props) => {
+const ChatContent = ({ chats }) => {
+  const chatKeys = Object.keys(chats)
   return (
     <div className="chat-content">
       <div className="chat-inner">
+        {chatKeys.map((chatId) => {
+          return <div className="chat-item chat-item--self" key={chatId}>
+            <div className="chat-time chat-time--self">
+              <span className="chat-time__txt">{chats[chatId].timestamp}</span>
+            </div>
+            <div className="chat-baloon chat-baloon--self">
+              <span className="chat-baloon__body chat-baloon__body--self">{chats[chatId].chatBody}</span>
+            </div>
+          </div>
+        })}
       </div>
     </div>
   )
@@ -48,7 +59,7 @@ const Chat = (props) => {
   return (
     <div className="chat-wrapper">
       <ChatHeader handleLogout={props.handleLogout} />
-      <ChatContent />
+      <ChatContent chats={props.chats} />
       <ChatInput
         handleSend={props.handleSend}
         handleChange={props.handleChange}
@@ -62,6 +73,7 @@ Chat.propTypes = {
   handleSend: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
   chatInput: PropTypes.string.isRequired,
+  chats: PropTypes.object.isRequired,
 }
 
 export default Chat
