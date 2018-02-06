@@ -25,3 +25,11 @@ export function convertTimeStamp(timestamp) {
 
   return time;
 }
+
+export function convertHour(timestamp) {
+  const d = new Date(timestamp)  // Convert the passed timestamp to milliseconds
+  const hh = d.getHours()
+  const mm = ('0' + (d.getMonth() + 1)).slice(-2) // Months are zero based. Add leading 0.
+  const time = `${hh}:${mm}`
+  return time
+}

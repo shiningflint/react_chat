@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { convertHour } from 'utilities/helpers'
 
 const ChatHeader = (props) => {
   return (
@@ -19,7 +20,7 @@ const ChatContent = ({ chats }) => {
         {chatKeys.map((chatId) => {
           return <div className="chat-item chat-item--self" key={chatId}>
             <div className="chat-time chat-time--self">
-              <span className="chat-time__txt">{chats[chatId].timestamp}</span>
+              <span className="chat-time__txt">{convertHour(chats[chatId].timestamp)}</span>
             </div>
             <div className="chat-baloon chat-baloon--self">
               <span className="chat-baloon__body chat-baloon__body--self">{chats[chatId].chatBody}</span>
