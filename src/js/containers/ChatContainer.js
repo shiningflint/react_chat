@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Chat from 'components/Chat'
 import ChatUnvalidated from 'components/ChatUnvalidated'
 import { validateUserRoom } from 'utilities/auth'
-import { postChat, apiGetChat } from 'utilities/api'
+import { postChat, listenChat } from 'utilities/api'
 
 class ChatContainer extends Component {
   constructor(props) {
@@ -16,25 +16,26 @@ class ChatContainer extends Component {
     }
     this.handleSend = this.handleSend.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.getChats = this.getChats.bind(this)
   }
 
   componentDidMount() {
     validateUserRoom(this.props.uid, this.props.chatRoomId)
       .then((result) => {
         this.setState({ userValidated: result })
-        this.getChats(this.props.chatRoomId)
+        listenChat(this.props.chatRoomId, this.getChats, (err) => console.warn(err))
       })
   }
 
-  getChats(chatRoomId) {
-    apiGetChat(chatRoomId).then((chats) => this.setState({ chats }))
+  getChats(snapshot) {
+    const chats = snapshot.val() || {}
+    this.setState({ chats })
   }
 
   handleSend(e) {
     e.preventDefault()
     const timeStamp = Date.now()
     postChat(this.props.uid, this.props.chatRoomId, this.state.chatInput, timeStamp)
-      .then(() => this.getChats(this.props.chatRoomId))
     this.resetChatInput()
   }
 

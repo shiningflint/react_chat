@@ -22,7 +22,6 @@ export function postChat(uid, chatRoomId, chatBody, timestamp) {
   })
 }
 
-export function apiGetChat(chatRoomId) {
-  return ref.child(`chats/${chatRoomId}`).once('value')
-    .then((snapshot) => snapshot.val() || {})
+export function listenChat(chatRoomId, callBack, errorCallBack) {
+  return ref.child(`chats/${chatRoomId}`).on('value', callBack, errorCallBack)
 }
