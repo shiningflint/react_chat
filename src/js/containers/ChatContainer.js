@@ -58,7 +58,8 @@ class ChatContainer extends Component {
         handleSend={this.handleSend}
         handleChange={this.handleChange}
         chatInput={this.state.chatInput}
-        chats = {this.state.chats} />
+        chats = {this.state.chats}
+        uid = {this.props.uid} />
       : <ChatUnvalidated errorMessage={this.state.errorMessage} />
     return validatedComponent
   }
